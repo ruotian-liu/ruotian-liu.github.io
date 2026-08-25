@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About | Ruotian Liu</title>
+  <meta name="description" content="Ruotian Liu — Assistant Professor at Politecnico di Bari, working on discrete-event systems, Petri nets, control, diagnosis, and security.">
+  <meta name="author" content="Ruotian Liu">
+  <link rel="icon" href="data:,">
+  <link rel="preload" as="image" href="./IMG_8617.JPG">
+  <style>
+    :root {
+      --ink: #1e2931;
+      --muted: #65727b;
+      --accent: #0f6874;
+      --accent-dark: #084a53;
+      --paper: #fffdf8;
+      --soft: #eaf4f3;
+      --line: #dce5e3;
+      --max-width: 1080px;
+      --sidebar-width: 260px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font: 17px/1.65 Arial, Helvetica, sans-serif;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255, 255, 255, .96);
+      border-bottom: 1px solid #edf0ef;
+      box-shadow: 0 5px 20px rgba(30, 41, 49, .06);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-nav .container {
+      display: flex;
+      align-items: stretch;
+      gap: clamp(28px, 5vw, 70px);
+      padding-left: calc(var(--sidebar-width) + 48px);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .top-nav .container::-webkit-scrollbar { display: none; }
+
+    .top-nav a {
+      position: relative;
+      flex: 0 0 auto;
+      padding: 22px 0 19px;
+      color: #51565a;
+      font: 500 clamp(13px, 1.6vw, 16px)/1.2 Arial, Helvetica, sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .top-nav a:hover,
+    .top-nav a.active {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .top-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 3px;
+      background: var(--accent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .2s ease;
+    }
+
+    .top-nav a:hover::after,
+    .top-nav a.active::after { transform: scaleX(1); }
+
+    .masthead {
+      min-height: 150px;
+      display: flex;
+      align-items: flex-end;
+      background:
+        linear-gradient(120deg, rgba(5, 56, 64, .3), rgba(15, 104, 116, .12)),
+        var(--banner-image, url("./IMG_8617.JPG")) center 88% / cover;
+    }
+
+    .masthead::after {
+      content: "";
+      width: 100%;
+      height: 5px;
+      background: #d5aa5c;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
+      gap: 48px;
+      padding: 46px 0 54px;
+    }
+
+    .sidebar {
+      align-self: start;
+      position: sticky;
+      top: 28px;
+    }
+
+    .profile-photo {
+      width: 156px;
+      aspect-ratio: 1;
+      display: block;
+      margin-bottom: 22px;
+      border-radius: 50%;
+      border: 7px solid rgba(15, 104, 116, .2);
+      object-fit: cover;
+      object-position: center 28%;
+      box-shadow: 0 8px 24px rgba(30, 41, 49, .12);
+    }
+
+    .name {
+      margin: 0 0 5px;
+      font: 700 27px/1.2 Arial, Helvetica, sans-serif;
+      letter-spacing: -.03em;
+    }
+
+    .role {
+      margin: 0 0 24px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .details {
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+    }
+
+    .detail { margin: 0 0 14px; }
+    .detail strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+
+    .profile-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -8px 0 22px;
+    }
+
+    .profile-links a {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      padding: 0;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: white;
+      color: var(--accent);
+      transition: transform .18s ease, border-color .18s ease, color .18s ease;
+    }
+
+    .profile-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent-dark);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+
+    .profile-links svg { width: 19px; height: 19px; fill: currentColor; }
+
+    main { min-width: 0; }
+
+    section {
+      padding: 0 0 32px;
+      margin-bottom: 31px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    section:last-child { border-bottom: 0; margin-bottom: 0; }
+
+    h1, h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--ink);
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    h2 {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      font-size: 19px;
+      letter-spacing: -.015em;
+    }
+
+    section h2:not(:first-child) { margin-top: 30px; }
+
+    h2::before {
+      content: "";
+      width: 24px;
+      height: 3px;
+      background: #d5aa5c;
+    }
+
+    p { margin: 0 0 15px; }
+    p:last-child { margin-bottom: 0; }
+
+    .lead { font-size: 20px; line-height: 1.55; }
+
+    .interests {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .interests li {
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--soft);
+      color: var(--accent-dark);
+      font: 500 13px/1.3 Arial, Helvetica, sans-serif;
+    }
+
+    .publications { padding: 0; margin: 0; list-style: none; }
+
+    .publication {
+      position: relative;
+      padding: 0 0 22px 28px;
+      margin-bottom: 22px;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .publication:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: 0; }
+
+    .publication::before {
+      content: attr(data-year);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      color: var(--accent);
+      font: 700 10px/1 Arial, Helvetica, sans-serif;
+      writing-mode: vertical-rl;
+    }
+
+    .publication-title {
+      display: inline-block;
+      margin-bottom: 5px;
+      color: var(--ink);
+      font: 600 16px/1.45 Arial, Helvetica, sans-serif;
+    }
+
+    .authors { color: var(--muted); font-size: 15px; line-height: 1.45; }
+    .venue { margin-top: 4px; color: var(--accent-dark); font-size: 15px; font-style: italic; }
+
+    .all-publications {
+      display: inline-block;
+      margin-top: 25px;
+      font: 600 14px/1.4 Arial, Helvetica, sans-serif;
+    }
+
+    h3 {
+      margin: 24px 0 10px;
+      color: var(--accent-dark);
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .compact-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .compact-list li { margin: 7px 0; }
+
+    .activity-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-top: 18px;
+    }
+
+    .activity-card {
+      padding: 0 0 22px;
+      margin-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .activity-card:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .course {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, .65);
+    }
+
+    .activity-card h3,
+    .course h3 { margin-top: 0; }
+
+    .course { margin-bottom: 14px; }
+    .course-meta { margin: -4px 0 10px; color: var(--muted); font-size: 14px; }
+
+    footer {
+      padding: 24px 0;
+      color: var(--muted);
+      background: #f1f5f3;
+      font: 13px/1.5 Arial, Helvetica, sans-serif;
+    }
+
+    @media (max-width: 760px) {
+      .masthead { min-height: 90px; }
+      .top-nav .container { padding-left: 0; }
+      .layout { grid-template-columns: 1fr; gap: 38px; padding-top: 34px; }
+      .sidebar { position: static; }
+      .profile-photo { width: 112px; }
+      .details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 24px; }
+      .profile-links { margin-top: 8px; }
+      .activity-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 440px) {
+      .container { width: min(calc(100% - 28px), var(--max-width)); }
+      .details { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="masthead" style="--banner-image: url('./IMG_8617.JPG')" aria-label="Decorative header"></header>
+
+  <nav class="top-nav" aria-label="Primary navigation">
+    <div class="container">
+      <a class="active" href="./index.html">About</a>
+      <a href="./activities.html">Activities</a>
+      <a href="./teaching.html">Teaching and Supervision</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="layout">
+      <aside id="contact" class="sidebar" aria-label="Personal information">
+        <img class="profile-photo" src="./pic/ruotian.liu.jpg" alt="Portrait of Ruotian Liu">
+        <p class="name">Ruotian Liu</p>
+        <p class="role">
+          RTD-a Assistant Professor<br>
+          Department of Electrical and Information Engineering<br>
+          Politecnico di Bari
+        </p>
+
+        <nav class="profile-links" aria-label="Academic and professional profiles">
+          <a href="https://scholar.google.com/citations?user=PTEaCZIAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 1 9l4 2.18v5.5L12 21l7-4.32v-5.5L21 10v6h2V9L12 3Zm0 2.27L18.84 9 12 12.73 5.16 9 12 5.27Zm5 10.29-5 3.08-5-3.08v-3.29l5 2.73 5-2.73v3.29Z"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/ruotian-liu-62b0aa14b/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.61 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13Zm1.78 13.04H3.54V8.98H7.1v11.47Z"/></svg>
+          </a>
+          <a href="https://orcid.org/0009-0000-1823-1542" target="_blank" rel="noopener" aria-label="ORCID" title="ORCID">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20ZM8.25 17H6.8V9.23h1.45V17Zm-.73-8.82a.93.93 0 1 1 0-1.86.93.93 0 0 1 0 1.86ZM14 17h-3.53V7h3.4c3.7 0 5.33 2.64 5.33 5 0 2.56-2 5-5.2 5Zm-.09-8.69h-2V15.7h2c2.58 0 3.76-1.86 3.76-3.7 0-1.8-1.22-3.69-3.76-3.69Z"/></svg>
+          </a>
+        </nav>
+
+        <div class="details">
+          <p class="detail">
+            <strong>Email</strong>
+            <a href="mailto:ruotian.liu@poliba.it">ruotian.liu@poliba.it</a>
+          </p>
+          <p class="detail">
+            <strong>Office</strong>
+            Via Orabona 4<br>
+            70125 Bari, Italy
+          </p>
+        </div>
+
+      </aside>
+
+      <main>
+        <section id="about">
+          <p>
+            He received the B.S. degree in automation from Xidian University, Xi’an, China, in 2015, and the M.S. and the Ph.D. degrees in automation from Aix-Marseille University, Marseille, France, in 2018 and 2021, respectively.
+          </p>
+          <p>
+            In 2022, he joined Polytechnic University of Bari, Italy, where he is currently an Assistant Professor with the Department of Electrical and Information Engineering.
+          </p>
+          <h2>Research Interests</h2>
+          <ul class="interests">
+            <li>Discrete-event systems</li>
+            <li>Petri nets</li>
+            <li>Control theory</li>
+            <li>Fault diagnosis</li>
+            <li>Cybersecurity</li>
+            <li>Hybrid systems</li>
+            <li>Reinforcement learning</li>
+            <li>Robotics</li>
+            <li>Intelligent transportation systems</li>
+          </ul>
+
+          <h2>Selected Publications</h2>
+          <ol class="publications">
+            <li class="publication" data-year="2026">
+              <a class="publication-title" href="https://doi.org/10.1109/TASE.2026.3682500" target="_blank" rel="noopener">Deep Reinforcement Learning for Near-Optimal Control Sequence in Discrete Event Systems</a>
+              <div class="authors"><strong>Ruotian Liu</strong>, Agostino Marcello Mangini, Maria Pia Fanti</div>
+              <div class="venue">IEEE Transactions on Automation Science and Engineering, 2026</div>
+            </li>
+            <li class="publication" data-year="2026">
+              <a class="publication-title" href="https://doi.org/10.1109/TASE.2026.3679186" target="_blank" rel="noopener">Securing Networked Discrete Event Systems for Diagnosability Under Attacks</a>
+              <div class="authors"><strong>Ruotian Liu</strong>, Tengbo Li, Shaopeng Hu, Agostino Marcello Mangini, Maria Pia Fanti</div>
+              <div class="venue">IEEE Transactions on Automation Science and Engineering, 2026</div>
+            </li>
+            <li class="publication" data-year="2026">
+              <a class="publication-title" href="https://doi.org/10.1109/JIOT.2025.3631606" target="_blank" rel="noopener">On Diagnosability Consistency of Composed Labeled Petri Nets via Buffer Places</a>
+              <div class="authors"><strong>Ruotian Liu</strong>, Shaopeng Hu, Yihui Hu, Agostino Marcello Mangini, Maria Pia Fanti</div>
+              <div class="venue">IEEE Internet of Things Journal, 2026</div>
+            </li>
+            <li class="publication" data-year="2025">
+              <a class="publication-title" href="https://doi.org/10.1109/JAS.2025.125156" target="_blank" rel="noopener">Synthesis of Optimal Stealthy Attacks against Diagnosability in Labeled Petri Nets</a>
+              <div class="authors"><strong>Ruotian Liu</strong>, Agostino Marcello Mangini, Maria Pia Fanti</div>
+              <div class="venue">IEEE/CAA Journal of Automatica Sinica, 2025</div>
+            </li>
+            <li class="publication" data-year="2025">
+              <a class="publication-title" href="https://doi.org/10.1109/TASE.2025.3540744" target="_blank" rel="noopener">Event-Driven Control of Hybrid Systems Using Batches Petri Nets: Application to High Throughput Manufacturing Systems</a>
+              <div class="authors"><strong>Ruotian Liu</strong>, Rabah Ammour, Leonardo Brenner, Isabel Demongodin</div>
+              <div class="venue">IEEE Transactions on Automation Science and Engineering, 2025</div>
+            </li>
+            <li class="publication" data-year="2023">
+              <a class="publication-title" href="https://doi.org/10.1109/LCSYS.2023.3284340" target="_blank" rel="noopener">Edit Mechanism Synthesis for Opacity Enforcement Under Uncertain Observations</a>
+              <div class="authors">Wei Duan, <strong>Ruotian Liu</strong>, Maria Pia Fanti, Christoforos N. Hadjicostis, Zhiwu Li</div>
+              <div class="venue">IEEE Control Systems Letters, 2023</div>
+            </li>
+          </ol>
+          <a class="all-publications" href="https://scholar.google.com/citations?user=PTEaCZIAAAAJ&amp;hl=en" target="_blank" rel="noopener">View all publications on Google Scholar →</a>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ruotian Liu</div>
+  </footer>
+
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
+</body>
+</html>
